@@ -1,0 +1,43 @@
+# Site settings
+
+# Title
+title: site title
+
+# Description
+description: >- # this means to ignore newlines until "baseurl:"
+  
+
+# Url
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# User Name
+github_username:  Accup
+# twitter_username: 
+
+# E-mail
+# email: 
+
+# Build settings
+markdown: kramdown
+
+# Default page data
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+
+# Exclude from processing.
+exclude:
+  - Gemfile         # default
+  - Gemfile.lock    # default
+  - node_modules    # default
+  - vendor/bundle/  # default
+  - vendor/cache/   # default
+  - vendor/gems/    # default
+  - vendor/ruby/    # default
+  - README.md
+  - jsconfig.json
+

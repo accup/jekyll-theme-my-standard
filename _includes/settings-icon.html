@@ -1,0 +1,14 @@
+{%- for sizes_image in page.icon -%}
+	{%- assign sizes = sizes_image[0] -%}
+	{%- assign icon = sizes_image[1] -%}
+	{%- assign path = icon.href | default: icon.src | default: icon -%}
+	{%- assign pieces = path | split: "." -%}
+	{%- assign pieces_size = pieces | size -%}
+	{%- if 1 < pieces_size -%}
+		{%- assign mime = icon.type | default: site.data.mime[pieces.last] %}
+	<link rel="icon" href="{{ path | relative_url }}"
+		{%- if mime %} type="{{ mime }}"{%- endif -%}
+		{%- if sizes != "default" %} sizes="{{ sizes }}"{%- endif -%}
+		>
+	{%- endif %}
+{%- endfor -%}

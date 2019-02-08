@@ -1,0 +1,39 @@
+{%- if page.smartphone-mode %}
+	<meta name="apple-mobile-web-app-capable" content="yes">
+{%- endif -%}
+{%- if page.smartphone-title %}
+	<meta name="apple-mobile-web-app-title" content="{{ page.smartphone-title }}">
+{%- endif -%}
+{%- if page.smartphone-status-bar %}
+	<meta name="apple-mobile-web-app-status-bar-style" content="{{ page.smartphone-status-bar }}">
+{%- endif -%}
+{%- for sizes_image in page.smartphone-icon -%}
+	{%- assign sizes = sizes_image[0] -%}
+	{%- assign sizes = site.data.smartphone.icon[sizes] | default: sizes -%}
+	{%- assign icon = sizes_image[1] -%}
+	{%- assign path = icon.href | default: icon.src | default: icon -%}
+	{%- assign pieces = path | split: "." -%}
+	{%- assign pieces_size = pieces | size -%}
+	{%- if 1 < pieces_size -%}
+		{%- assign mime = icon.type | default: site.data.mime[pieces.last] %}
+	<link rel="apple-touch-icon-precomposed" href="{{ path | relative_url }}"
+		{%- if mime %} type="{{ mime }}"{%- endif -%}
+		{%- if sizes != "default" %} sizes="{{ sizes }}"{%- endif -%}
+		>
+	{%- endif %}
+{%- endfor -%}
+{%- for sizes_image in page.smartphone-startup-image -%}
+	{%- assign sizes = sizes_image[0] -%}
+	{%- assign sizes = site.data.smartphone.startup-image[sizes] | default: sizes -%}
+	{%- assign icon = sizes-icon[1] -%}
+	{%- assign path = icon.href | default: icon.src | default: icon -%}
+	{%- assign pieces = path | split: "." -%}
+	{%- assign pieces_size = pieces | size -%}
+	{%- if 1 < pieces_size -%}
+		{%- assign mime = icon.type | default: site.data.mime[pieces.last] %}
+	<link rel="apple-touch-startup-image" href="{{ path | relative_url }}"
+		{%- if mime %} type="{{ mime }}"{%- endif -%}
+		{%- if sizes != "default" %} sizes="{{ sizes }}"{%- endif -%}
+		>
+	{%- endif %}
+{%- endfor -%}

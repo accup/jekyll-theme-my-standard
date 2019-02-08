@@ -1,0 +1,27 @@
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{%- assign viewport = page.viewport %}
+{%- capture viewport-content -%}
+	width={{- viewport.width | default: "device-width" -}}
+	{%- if viewport.height -%}
+		, height={{- viewport.height -}}
+	{%- endif -%}
+	, initial-scale={{- viewport.initial-scale | default: 1 -}}
+	{%- if viewport.minimum-scale -%}
+		, minimum-scale={{- viewport.minimum-scale -}}
+	{%- endif -%}
+	{%- if viewport.maximum-scale -%}
+		, maximum-scale={{- viewport.maximum-scale -}}
+	{%- endif -%}
+	{%- if viewport.user-scalable != nil -%}
+		{%- if viewport.user-scalable -%}
+			, user-scalable=yes
+		{%- else -%}
+			, user-scalable=no
+		{%- endif -%}
+	{%- endif -%}
+{%- endcapture %}
+	<meta name="viewport" content="{{ viewport-content | escape_once }}">
+{%- unless page.format-telephone %}
+	<meta name="format-detection" content="telephone=no">
+{%- endunless -%}

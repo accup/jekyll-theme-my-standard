@@ -1,0 +1,17 @@
+txt: text/plain
+htm: text/html
+html: text/html
+css: text/css
+js: text/javascript
+bmp: image/bmp
+png: image/png
+gif: image/gif
+jpg: image/jpeg
+jpeg: image/jpeg
+svg: image/xml+svg
+svgz: image/xml+svg
+ico: image/vnd.microsoft.icon
+mid: audio/midi
+mp3: audio/mp3
+wav: audio/wav
+xml: application/xml

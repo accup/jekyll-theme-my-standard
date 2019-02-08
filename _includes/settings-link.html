@@ -1,0 +1,6 @@
+{%- for link in page.link %}
+	<link
+		{%- for link_attr in link %} {{ link_attr[0] -}}
+			{%- if link_attr[1] != nil %}="{{ link_attr[1] | escape_once }}"{% endif -%}
+		{%- endfor -%}>
+{%- endfor -%}

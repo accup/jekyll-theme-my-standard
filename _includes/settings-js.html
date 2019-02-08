@@ -1,0 +1,10 @@
+{%- for js in page.js -%}
+	{%- if js.first != nil %}
+	<script
+		{%- if js.defer %} defer
+		{%- elsif js.async %} async
+		{%- endif %} src="{{ js.defer | default: js.async | default: js.src | default: js.href | relative_url }}" type="text/javascript"></script>
+	{%- else %}
+	<script src="{{ js | relative_url }}" type="text/javascript"></script>
+	{%- endif %}
+{%- endfor -%}

@@ -1,0 +1,103 @@
+# References:
+# - アイコンとブラウザの色  |  Web  |  Google Developers
+#   - https://developers.google.com/web/fundamentals/design-and-ux/browser-customization/?hl=ja
+# - Adaptivity and Layout - Visual Design - iOS - Human Interface Guidelines - Apple Developer
+#   - https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/
+# - Image Size and Resolution - Icons and Images - iOS - Human Interface Guidelines - Apple Developer
+#   - https://developer.apple.com/design/human-interface-guidelines/ios/icons-and-images/image-size-and-resolution/
+# - Pinned site metadata reference (Internet Explorer)
+#   - https://technet.microsoft.com/en-us/windows/dn255024(v=vs.60)
+
+icon:
+  # For iOS
+  iphone:               120x120
+  iphone-3x:            180x180
+  ipad:                 152x152
+  ipad-mini:            152x152
+  ipad-pro:             167x167
+  apple-store:          1024x1024
+  iphone-spotlight:     80x80
+  iphone-spotlight-3x:  120x120
+  ipad-spotlight:       80x80
+  ipad-pro-spotlight:   80x80
+  ipad-mini-spotlight:  80x80
+  iphone-settings:      58x58
+  iphone-settings-3x:   87x87
+  ipad-settings:        58x58
+  ipad-pro-settings:    58x58
+  ipad-mini-settings:   58x58
+  ipad-settings:        58x58
+
+# For Windows Tile
+windows-tile:
+  small: msapplication-square70x70logo
+  medium: msapplication-square150x150logo
+  wide: msapplication-square310x150logo
+  large: msapplication-square310x310logo
+  
+device-info:
+  # For iOS
+  12.9-ipad-pro:
+    width: 1024
+    height: 1366
+    pixel-ratio: 2
+  11-ipad-pro:
+    width: 834
+    height: 1194
+    pixel-ratio: 2
+  10.5-ipad-pro:
+    width: 834
+    height: 1112
+    pixel-ratio: 2
+  9.7-ipad:
+    width: 768
+    height: 1024
+    pixel-ratio: 2
+  7.9-ipad-mini-4:
+    width: 768
+    height: 1024
+    pixel-ratio: 2
+  iphone-xs-max:
+    width: 414
+    height: 896
+    pixel-ratio: 3
+  iphone-xs:
+    width: 375
+    height: 812
+    pixel-ratio: 3
+  iphone-xr:
+    width: 414
+    height: 896
+    pixel-ratio: 2
+  iphone-x:
+    width: 375
+    height: 812
+    pixel-ratio: 3
+  iphone-8-plus:
+    width: 414
+    height: 736
+    pixel-ratio: 3
+  iphone-8:
+    width: 375
+    height: 667
+    pixel-ratio: 2
+  iphone-7-plus:
+    width: 414
+    height: 736
+    pixel-ratio: 3
+  iphone-7:
+    width: 375
+    height: 667
+    pixel-ratio: 2
+  iphone-6-plus:
+    width: 414
+    height: 736
+    pixel-ratio: 3
+  iphone-6:
+    width: 375
+    height: 667
+    pixel-ratio: 2
+  iphone-se:
+    width: 320
+    height: 568
+    pixel-ratio: 2

@@ -46,6 +46,15 @@ icon:
     type: image/png
 ```
 
+もし、同じサイズに対して複数のアイコンを指定したい場合は、以下のような方法で記述できます（`smartphone-icon`, `smartphone-startup-image` の設定でも同様の方法が利用できます）。
+```yaml
+icon:
+  - [ default, favicon.ico ]
+  - [ default, favicon.png ]
+  - [ 32x32, icon32.png ]
+  - [ 32x32, icon32-2.png ]
+```
+
 #### スマートフォン向けアイコンの追加
 キーとしてサイズを指定してアイコンを追加します。また、アイコンの拡張子に応じてMIMEタイプが適用されます（_data/mime.yml に定義されているものに限る）。アイコンのサイズとして、_data/smartphone.yml に定義されているエイリアスを利用できます。
 ```yaml
@@ -54,6 +63,25 @@ smartphone-icon:
   32x32: icon32.png     # 通常のアイコンと同様の指定方法を利用可能
   iphone: icon-iphone.png   # iphone エイリアスを指定する
   iphone-settings: icon-iphone-settings.png # iphone-settings エイリアス
+```
+
+#### Windows タイルの追加
+```yaml
+windows-tile:
+  small: tile-small.png   # 小タイル
+  medium: tile-medium.png # 中タイル
+  wide: tile-wide.png     # ワイドタイル
+  large: tile.large.png   # 大タイル
+```
+
+#### スマートフォン向けスタートアップ画像（スプラッシュ画像）の追加（実験段階）
+アイコンの設定と同じく、キーとしてサイズを指定してアイコンを追加します。
+```yaml
+smartphone-startup-image:
+  default: startup.png
+  iphone-se: startup-iphone-se.png
+  iphone-6: startup-iphone-6.png
+  iphone-xs: startup-iphone-xs.png
 ```
 
 #### スマートフォン向けの設定

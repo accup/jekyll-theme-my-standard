@@ -9,7 +9,7 @@
 {%- endif -%}
 {%- for sizes_image in page.smartphone-icon -%}
 	{%- assign sizes = sizes_image[0] -%}
-	{%- assign sizes = site.data.smartphone.icon[sizes] | default: sizes -%}
+	{%- assign sizes = site.data.device.icon[sizes] | default: sizes -%}
 	{%- assign icon = sizes_image[1] -%}
 	{%- assign path = icon.href | default: icon.src | default: icon -%}
 	{%- assign pieces = path | split: "." -%}
@@ -22,18 +22,39 @@
 		>
 	{%- endif %}
 {%- endfor -%}
-{%- for sizes_image in page.smartphone-startup-image -%}
-	{%- assign sizes = sizes_image[0] -%}
-	{%- assign sizes = site.data.smartphone.startup-image[sizes] | default: sizes -%}
-	{%- assign icon = sizes-icon[1] -%}
-	{%- assign path = icon.href | default: icon.src | default: icon -%}
-	{%- assign pieces = path | split: "." -%}
-	{%- assign pieces_size = pieces | size -%}
-	{%- if 1 < pieces_size -%}
+{%- for sizes_image in page.windows-tile %}
+	{%- assign sizes = sizes_image[0] %}
+	{%- assign name = site.data.device.windows-tile[sizes] %}
+	{%- assign icon = sizes_image[1] %}
+	{%- assign path = icon.href | default: icon.src | default: icon %}
+	{%- if name %}
+		<meta name="{{ name }}" content="{{ path | relative_url }}">
+	{%- endif %}
+{%- endfor -%}
+{%- for name_image in page.smartphone-startup-image %}
+	{%- assign name = name_image[0] %}
+	{%- assign image = name_image[1] %}
+	{%- if name == "default" %}
+		{%- assign media = nil %}
+	{%- else %}
+		{%- assign device-info = site.data.device.device-info[name] %}
+		{%- capture media -%}
+			(device-width: {{ device-info.width -}}px)
+			{{- nil }} and (device-height: {{ device-info.height -}}px)
+			{{- nil }} and (-webkit-device-pixel-ratio: {{ device-info.pixel-ratio -}})
+			{%- if image.orientation %}
+				{{- nil }} and (orientation: {{ image.orientation }})
+			{%- endif %}
+		{%- endcapture %}
+	{%- endif %}
+	{%- assign path = image.href | default: image.src | default: image %}
+	{%- assign pieces = path | split: "." %}
+	{%- assign pieces_size = pieces | size %}
+	{%- if 1 < pieces_size %}
 		{%- assign mime = icon.type | default: site.data.mime[pieces.last] %}
 	<link rel="apple-touch-startup-image" href="{{ path | relative_url }}"
 		{%- if mime %} type="{{ mime }}"{%- endif -%}
-		{%- if sizes != "default" %} sizes="{{ sizes }}"{%- endif -%}
+		{%- if media %} media="{{ media }}"{%- endif -%}
 		>
 	{%- endif %}
 {%- endfor -%}

@@ -2,8 +2,8 @@
 ただの Jekyll のテーマです。
 
 ## README
-- [English](../README.md)
-- [__日本語__](../README/JP.md)
+- [English](./EN.md)
+- [__日本語__](./JP.md)
 
 ## インストール
 以下を実行してください。:

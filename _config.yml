@@ -39,6 +39,6 @@ exclude:
   - vendor/gems/    # default
   - vendor/ruby/    # default
   - README.md
-  - README/
+  - THEME-README/
   - jsconfig.json
 

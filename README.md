@@ -1,52 +1,58 @@
-# Jekyll standard template for me
-## 概要
-Jekyll のテンプレートです。
+# jekyll-theme-my-standard
+My standard Jekyll theme.
 
-## 仕様
-### YAML Front Matter について
-レイアウトを `default` にしている場合、次の設定が利用できます。
+## Installation
+Execute below:
 
-#### Viewport の設定
+    $ git clone https://github.com/accup/jekyll-theme-my-standard.git <website-name>
+    $ bundle
+
+
+## Usage
+### About YAML Front Matter
+If you use the `default` layout, you can use the settings below.
+
+#### Set the viewport
 ```yaml
 viewport:
-  width: 640          # width を指定
-  height: 480         # height を指定
-  initial-scale: 2    # initial-scale を指定
-  minimum-scale: 0.5  # minimum-scale を指定
-  maximum-scale: 4    # maximum-scale を指定
+  width: 640            # specify `width`
+  height: 480           # specify `height`
+  initial-scale: 2      # specify `initial-scale`
+  minimum-scale: 0.5    # specify `minimum-scale`
+  maximum-scale: 4      # specify `maximum-scale`
 ```
 
-#### CSS の追加
+#### Add CSS files
 ```yaml
 css:
-  - style1.css          # 通常の利用法
-  - href: style2.css    # 敢えて href で指定する
-  - src: style3.css     # src で指定する（href と同じ）
+  - style1.css          # standard usage
+  - href: style2.css    # specifically specify `href`
+  - src: style3.css     # you can specify `src` (it's same as `href`).
 ```
 
-#### JS の追加
+#### Add JS files
 ```yaml
 js:
-  - script1.js          # 通常の利用法
-  - defer: script2.js   # defer で読み込む
-  - async: script3.js   # async で読み込む
-  - src: script4.js     # 敢えて src で指定する
-  - href: script5.js    # href で指定する（src と同じ）
+  - script1.js          # standard usage
+  - defer: script2.js   # `defer` loading
+  - async: script3.js   # load `async`hronously
+  - src: script4.js     # specifically specify src
+  - href: script5.js    # you can specify `href` (it's same as `src`).
 ```
 
-#### アイコンの追加
-キーとしてサイズを指定してアイコンを追加します。また、アイコンの拡張子に応じてMIMEタイプが適用されます（_data/mime.yml に定義されているものに限る）。
+#### Add icons
+You can specify YAML hash key as a `sizes` attribute and hash value as a icon path to add any icon. The MIME type is automatically selected from the file extension (only when defined in _data/mime.yml). 
 ```yaml
 icon:
-  default: favicon.ico  # sizes 指定なしのアイコン
-  32x32: icon32.png     # sizes="32x32" のアイコン
-  64x64: icon64.png     # sizes="64x64" のアイコン
-  120x120:              # sizes="120x120" のアイコンを詳しく指定
+  default: favicon.ico  # not specify `sizes`
+  32x32: icon32.png     # specify sizes="32x32"
+  64x64: icon64.png     # specify sizes="64x64"
+  120x120:              # particularly specify  sizes="120x120"
     href: icon120.png
     type: image/png
 ```
 
-もし、同じサイズに対して複数のアイコンを指定したい場合は、以下のような方法で記述できます（`smartphone-icon`, `smartphone-startup-image` の設定でも同様の方法が利用できます）。
+If you want to specify  many icon `sizes`es, please write like below (you can use this format to specify `smartphone-icon`, `smartphone-startup-image` and `windows-tile`).
 ```yaml
 icon:
   - [ default, favicon.ico ]
@@ -55,27 +61,27 @@ icon:
   - [ 32x32, icon32-2.png ]
 ```
 
-#### スマートフォン向けアイコンの追加
-キーとしてサイズを指定してアイコンを追加します。また、アイコンの拡張子に応じてMIMEタイプが適用されます（_data/mime.yml に定義されているものに限る）。アイコンのサイズとして、_data/smartphone.yml に定義されているエイリアスを利用できます。
+#### Add icons for smartphones
+You can specify in the same way as the normal icons. Additionally, you can use the aliases of the sizes which defined in _data/smartphone.yml.
 ```yaml
 smartphone-icon:
-  default: icon.png     # sizes 指定なしのアイコン
-  32x32: icon32.png     # 通常のアイコンと同様の指定方法を利用可能
-  iphone: icon-iphone.png   # iphone エイリアスを指定する
-  iphone-settings: icon-iphone-settings.png # iphone-settings エイリアス
+  default: icon.png     # not specify `sizes`
+  32x32: icon32.png     # specify sizes in the same way as the normal icons
+  iphone: icon-iphone.png   # specify the `iphone` alias
+  iphone-settings: icon-iphone-settings.png # `iphone-settings` alias
 ```
 
-#### Windows タイルの追加
+#### Add Windows tiles
 ```yaml
 windows-tile:
-  small: tile-small.png   # 小タイル
-  medium: tile-medium.png # 中タイル
-  wide: tile-wide.png     # ワイドタイル
-  large: tile.large.png   # 大タイル
+  small: tile-small.png   # small tile
+  medium: tile-medium.png # medium tile
+  wide: tile-wide.png     # wide tile
+  large: tile.large.png   # large tile
 ```
 
-#### スマートフォン向けスタートアップ画像（スプラッシュ画像）の追加（実験段階）
-アイコンの設定と同じく、キーとしてサイズを指定してアイコンを追加します。
+#### Add start-up images for smartphones (it's also called splash image or launch image)
+You can specify in the same way as the smartphone icons.
 ```yaml
 smartphone-startup-image:
   default: startup.png
@@ -84,20 +90,20 @@ smartphone-startup-image:
   iphone-xs: startup-iphone-xs.png
 ```
 
-#### スマートフォン向けの設定
+#### Settings for smartphones
 ```yaml
-smartphone-mode: true   # ホーム画面から開くと全画面モードで開くようになる
-smartphone-status-bar: red  # ステータスバーの色を指定
-smartphone-status-bar: black-translucent    # ステータスバーをシームレスにする
-smartphone-title: ほげふが  # ホーム画面上でのアイコンのタイトルを指定
+smartphone-mode: true   # enable full-screen mode
+smartphone-status-bar: red  # specify status bar color
+smartphone-status-bar: black-translucent    # make status bar seamless
+smartphone-title: ほげふが  # specify the icon title on the home screen
 ```
 
-#### その他の設定
+#### Other settings
 ```yaml
-format-telephone: true  # 数値の並びを電話番号として解釈する（Falsyな値を指定すると無効にする。デフォルトで無効化される。）
+format-telephone: true  # allow linking to telephone number from digit sequence（It's disabled when specifying falsy value. Normally disabled.）
 ```
 
-#### その他の link の追加
+#### Add other `link`s
 ```yaml
 link:
   - rel: stylesheet
@@ -109,33 +115,32 @@ link:
 ```
 
 
-### 各ファイル・ディレクトリについて
+### About each file or directory
 
-|パス|内容|
+|path|description|
 |:--|:--|
-|_data/         |追加のデータファイルを配置するディレクトリ
-|_data/mime.yml |テキスト・画像・音声などのファイルの拡張子からMIMEタイプを得るための簡易的なデータファイル
-|_data/smartphone.yml|スマートフォンアイコンなどのサイズ指定を行うときのエイリアスを定義するデータファイル
-|_includes/     |includeタグで利用するファイルを配置するディレクトリ
-|_includes/settings-standard.html|ほとんどのページで利用されるであろう基本的なページ設定(meta, link)のインクルードファイル
-|_includes/settings-css.html|CSSインポートを簡易化するためのインクルードファイル
-|_includes/settings-js.html|JSインポートを簡易化するためのインクルードファイル
-|_includes/settings-icon.html|アイコンの設定を簡易化するためのインクルードファイル
-|_includes/settings-smartphone.html|スマートフォン向けの設定を簡易化するためのインクルードファイル
-|_includes/settings-link.html|`link` タグの追加を簡易化するためのインクルードファイル
-|_layouts/      |レイアウト用のHTMLを配置するディレクトリ
-|_layouts/default.html|デフォルトのレイアウト（本テンプレートの基盤的存在）
-|_plugins/      |Rubyで書かれたプラグインを配置するディレクトリ
-|_sass/         |importするSASSファイルを配置するディレクトリ
-|_sass/_variables.scss|SASSの基本的な定数を定義するファイル
-|_site/         |デフォルトのビルドディレクトリ
-|.sass-cache/   |SASSのキャッシュが配置されるディレクトリ
-|_config.yml    |サイトの設定ファイル
-|.gitignore     |gitの除外対象設定
-|404.html       |404 Not Found の際のページ
-|Gemfile        |利用したいgemの一覧
-|Gemfile.lock   |現在利用しているgemの一覧（ `bundle update` で更新されうる。GemFileを編集した場合は `bundle install` でも更新されうる。）
-|index.md       |サイトのトップページ
-|README.md      |本テンプレートの説明
+|_data/         |a directory to locate additional data files
+|_data/mime.yml |a cheap data file for converting from file extension (txt, png, wav, etc.) to MIME type
+|_data/device.yml|a data file to define the `sizes` aliases
+|_includes/     |a directory to locate include files
+|_includes/settings-standard.html|an include file for maybe almost all files.
+|_includes/settings-css.html|an include file to simplify importing CSS
+|_includes/settings-js.html|an include file to simplify importing JS
+|_includes/settings-icon.html|an include file to simplify setting icons
+|_includes/settings-smartphone.html|an include file to simplify setting for smartphones
+|_includes/settings-link.html|an include file to simplify to add `link` tags.
+|_layouts/      |a directory to locate layout files
+|_layouts/default.html|the default layout
+|_sass/         |a directory to locate SASS files to import
+|_sass/_variables.scss|a SASS file to define standard constants
+|_site/         |the default build directory
+|.sass-cache/   |a directory to locate SASS caches
+|_config.yml    |a setting file of your site
+|.gitignore     |a setting file to exclude files from the git management
+|404.html       |a page for 404 Not Found
+|Gemfile        |gem lists to use
+|Gemfile.lock   |gem lists which is active（this file will be updated by `bundle update`. If you edit GemfFile, it will also be updated by `bundle install`.）
+|index.md       |top page of your site
+|README.md      |the description of this theme
 |
-	
+

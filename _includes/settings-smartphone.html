@@ -8,7 +8,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="{{ page.smartphone-status-bar }}">
 {%- endif -%}
 {%- for sizes_image in page.smartphone-icon -%}
-	{%- assign sizes = sizes_image[0] -%}
+	{%- assign sizes = sizes_image[0] | downcase -%}
 	{%- assign sizes = site.data.device.icon[sizes] | default: sizes -%}
 	{%- assign icon = sizes_image[1] -%}
 	{%- assign path = icon.href | default: icon.src | default: icon -%}
@@ -23,7 +23,7 @@
 	{%- endif %}
 {%- endfor -%}
 {%- for sizes_image in page.windows-tile %}
-	{%- assign sizes = sizes_image[0] %}
+	{%- assign sizes = sizes_image[0] | downcase %}
 	{%- assign name = site.data.device.windows-tile[sizes] %}
 	{%- assign icon = sizes_image[1] %}
 	{%- assign path = icon.href | default: icon.src | default: icon %}
@@ -32,16 +32,26 @@
 	{%- endif %}
 {%- endfor -%}
 {%- for name_image in page.smartphone-startup-image %}
-	{%- assign name = name_image[0] %}
+	{%- assign name = name_image[0] | downcase %}
 	{%- assign image = name_image[1] %}
 	{%- if name == "default" %}
 		{%- assign media = nil %}
 	{%- else %}
 		{%- assign device-info = site.data.device.device-info[name] %}
+		{%- if device-info %}
+			{%- assign device-info-width = device-info.width %}
+			{%- assign device-info-height = device-info.height %}
+			{%- assign device-info-pixel-ratio = device-info.pixel-ratio %}
+		{%- else %}
+			{%- assign sizes = name | downcase | split: 'x' %}
+			{%- assign device-info-width = sizes[0] | plus: 0 %}
+			{%- assign device-info-height = sizes[1] | plus: 0 %}
+			{%- assign device-info-pixel-ratio = sizes[2] | default: 1 | plus: 0 %}
+		{%- endif %}
 		{%- capture media -%}
-			(device-width: {{ device-info.width -}}px)
-			{{- nil }} and (device-height: {{ device-info.height -}}px)
-			{{- nil }} and (-webkit-device-pixel-ratio: {{ device-info.pixel-ratio -}})
+			(device-width: {{ device-info-width -}}px)
+			{{- nil }} and (device-height: {{ device-info-height -}}px)
+			{{- nil }} and (-webkit-device-pixel-ratio: {{ device-info-pixel-ratio -}})
 			{%- if image.orientation %}
 				{{- nil }} and (orientation: {{ image.orientation }})
 			{%- endif %}

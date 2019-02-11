@@ -1,6 +1,10 @@
 # jekyll-theme-my-standard
 ただの Jekyll のテーマです。
 
+## README
+- [English](../README.md)
+- [__日本語__](../README/JP.md)
+
 ## インストール
 以下を実行してください。:
 

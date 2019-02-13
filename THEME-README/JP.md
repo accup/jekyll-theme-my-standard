@@ -145,6 +145,6 @@ link:
 |Gemfile        |利用したいgemの一覧
 |Gemfile.lock   |現在利用しているgemの一覧（ `bundle update` で更新されうる。GemFileを編集した場合は `bundle install` でも更新されうる。）
 |index.md       |サイトのトップページ
-|README.md      |本テーマの説明
+|README.md      |サイトの説明に利用してください
 |
 

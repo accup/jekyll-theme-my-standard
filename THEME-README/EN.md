@@ -143,8 +143,8 @@ link:
 |.gitignore     |a setting file to exclude files from the git management
 |404.html       |a page for 404 Not Found
 |Gemfile        |gem lists to use
-|Gemfile.lock   |gem lists which is active（this file will be updated by `bundle update`. If you edit GemfFile, it will also be updated by `bundle install`.）
+|Gemfile.lock   |gem lists which is active（this file will be updated by `bundle update`. If you edit GemFile, it will also be updated by `bundle install`.）
 |index.md       |top page of your site
-|README.md      |the description of this theme
+|README.md      |please use this file for the description of your site
 |
 

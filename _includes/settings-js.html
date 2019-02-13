@@ -1,4 +1,4 @@
-{%- for js in page.js -%}
+{%- for js in include.js -%}
 	{%- if js.first != nil %}
 	<script
 		{%- if js.defer %} defer

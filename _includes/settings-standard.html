@@ -1,6 +1,7 @@
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-{%- assign viewport = page.viewport %}
+{%- assign viewport = include.viewport %}
 {%- capture viewport-content -%}
 	width={{- viewport.width | default: "device-width" -}}
 	{%- if viewport.height -%}
@@ -22,6 +23,6 @@
 	{%- endif -%}
 {%- endcapture %}
 	<meta name="viewport" content="{{ viewport-content | escape_once }}">
-{%- unless page.format-telephone %}
+{%- unless include.format-telephone %}
 	<meta name="format-detection" content="telephone=no">
 {%- endunless -%}

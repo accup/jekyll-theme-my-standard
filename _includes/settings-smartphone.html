@@ -1,13 +1,13 @@
-{%- if page.smartphone-mode %}
+{%- if include.smartphone-mode %}
 	<meta name="apple-mobile-web-app-capable" content="yes">
 {%- endif -%}
-{%- if page.smartphone-title %}
-	<meta name="apple-mobile-web-app-title" content="{{ page.smartphone-title }}">
+{%- if include.smartphone-title %}
+	<meta name="apple-mobile-web-app-title" content="{{ include.smartphone-title }}">
 {%- endif -%}
-{%- if page.smartphone-status-bar %}
-	<meta name="apple-mobile-web-app-status-bar-style" content="{{ page.smartphone-status-bar }}">
+{%- if include.smartphone-status-bar %}
+	<meta name="apple-mobile-web-app-status-bar-style" content="{{ include.smartphone-status-bar }}">
 {%- endif -%}
-{%- for sizes_image in page.smartphone-icon -%}
+{%- for sizes_image in include.smartphone-icon -%}
 	{%- assign sizes = sizes_image[0] | downcase -%}
 	{%- assign sizes = site.data.device.icon[sizes] | default: sizes -%}
 	{%- assign icon = sizes_image[1] -%}
@@ -22,7 +22,7 @@
 		>
 	{%- endif %}
 {%- endfor -%}
-{%- for sizes_image in page.windows-tile %}
+{%- for sizes_image in include.windows-tile %}
 	{%- assign sizes = sizes_image[0] | downcase %}
 	{%- assign name = site.data.device.windows-tile[sizes] %}
 	{%- assign icon = sizes_image[1] %}
@@ -31,7 +31,7 @@
 		<meta name="{{ name }}" content="{{ path | relative_url }}">
 	{%- endif %}
 {%- endfor -%}
-{%- for name_image in page.smartphone-startup-image %}
+{%- for name_image in include.smartphone-startup-image %}
 	{%- assign name = name_image[0] | downcase %}
 	{%- assign image = name_image[1] %}
 	{%- if name == "default" %}

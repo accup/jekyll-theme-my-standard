@@ -27,7 +27,12 @@ defaults:
       path: ""
     values:
       layout: "default"
-
+      css: []
+      js: []
+      icon: []
+      smartphone-icon: []
+      windows-tile: []
+      smartphone-startup-image: []
 
 # Exclude from processing.
 exclude:

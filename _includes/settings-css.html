@@ -1,4 +1,4 @@
-{%- for css in page.css %}
+{%- for css in include.css %}
 	{%- if css.first != nil %}
 	<link rel="stylesheet" href="{{ css.href | default: css.src | relative_url }}" type="text/css">
 	{%- else %}

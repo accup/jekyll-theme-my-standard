@@ -1,4 +1,4 @@
-{%- for sizes_image in page.icon -%}
+{%- for sizes_image in include.icon -%}
 	{%- assign sizes = sizes_image[0] -%}
 	{%- assign icon = sizes_image[1] -%}
 	{%- assign path = icon.href | default: icon.src | default: icon -%}

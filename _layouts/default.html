@@ -1,15 +1,44 @@
+---
+css: []
+js: []
+icon: []
+smartphone-icon: []
+windows-tile: []
+smartphone-startup-image: []
+---
 <!DOCTYPE html>
 <html>
 <head>
-	{%- include settings-standard.html %}
-	{%- include settings-css.html %}
-	{%- include settings-js.html %}
-	{%- include settings-icon.html %}
-	{%- include settings-smartphone.html %}
-	{%- include settings-link.html %}
-	<title>{{ page.title }}</title>
+	{%- assign viewport = page.viewport | default: layout.viewport %}
+	{%- assign css = layout.css | concat: page.css %}
+	{%- assign js = layout.js | concat: page.js %}
+	{%- assign icon = layout.icon | concat: page.icon %}
+	{%- assign smartphone-icon = layout.smartphone-icon | concat: page.smartphone-icon %}
+	{%- assign windows-tile = layout.windows-tile | concat: page.windows-tile %}
+	{%- assign smartphone-startup-image = layout.smartphone-startup-image | concat: page.smartphone-startup-image %}
+	{%- include settings-standard.html
+		viewport = viewport
+		format-telephone = page.format-telephone %}
+	{%- include settings-css.html css = css %}
+	{%- include settings-js.html js = js %}
+	{%- include settings-icon.html icon = icon %}
+	{%- include settings-smartphone.html
+		smartphone-mode = page.smartphone-mode
+		smartphone-title = page.smartphone-title
+		smartphone-status-bar = page.smartphone-status-bar
+		smartphone-icon = smartphone-icon
+		windows-tile = windows-tile
+		smartphone-startup-image = smartphone-startup-image %}
+	{%- include settings-link.html link = link %}
+	<title>
+		{%- if page.title %}
+			{{- page.title }} - {% endif %}
+		{{- site.title -}}
+	</title>
 </head>
 <body>
+{{ layout }}
+{{ page }}
 {{ content }}
 </body>
 </html>
